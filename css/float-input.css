@@ -1,0 +1,150 @@
+form {
+  background-color: #f1f1f1;
+
+  padding: 40px;
+  width: 100%;
+  min-width: 300px;
+  font-family: economica;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+/**
+* Make the field a flex-container, reverse the order so label is on top.
+*/
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 5px;
+}
+
+/**
+* Add a transition to the label and input.
+* I'm not even sure that touch-action: manipulation works on
+* inputs, but hey, it's new and cool and could remove the
+* pesky delay.
+*/
+
+label, input {
+  transition: all 0.4s;
+  touch-action: manipulation;
+  font-size: 10px;
+  padding-left: 30px;
+
+}
+
+input {
+  font-size: 15px;
+  border-bottom: 1px solid #ccc;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+  height: 50px;
+  cursor: text;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+input:focus {
+  outline: 0;
+  /*  border-bottom: 1px solid #666; */
+}
+
+label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/**
+* Translate down and scale the label up to cover the placeholder,
+* when following an input (with placeholder-shown support).
+* Also make sure the label is only on one row, at max 2/3rds of the
+* field—to make sure it scales properly and doesn't wrap.
+*/
+
+input:placeholder-shown+label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+
+/**
+* By default, the placeholder should be transparent. Also, it should
+* inherit the transition.
+*/
+
+::-webkit-input-placeholder {
+  color: transparent;
+  transition: inherit;
+}
+
+/**
+* Show the placeholder when the input is focused.
+*/
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when
+* there's something in the input at all.
+*/
+
+input:not(:placeholder-shown)+label, input:focus+label {
+  transform: translate(0, 0) scale(1.5);
+  cursor: pointer;
+  /* background-color: red; */
+}
+button#logIn {
+  width: 100%;
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: economica;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom 1.5s;
+}
+form h1{
+  text-align: center;
+  color: peru;
+}
+/*
+<form action="">
+<div class="field">
+  <input type="text" name="fullname" id="fullname" placeholder="Jane Appleseed">
+  <label for="fullname">Name</label>
+</div>
+<div class="field">
+  <input type="email" name="email" id="email" placeholder="jane.appleseed@example.com">
+  <label for="email">Email</label>
+</div>
+</form>
+ */
+/*<form action="" method="get">
+  <h1>User Login</h1>
+<div class="field">
+  <input type="password" name="password" id="password" placeholder="password">
+  <label for="password">Password</label>
+</div>
+<div class="field">
+  <input type="email" name="email-username" id="email" placeholder="jane.appleseed@example.com">
+  <label for="email">Email or Username</label>
+</div>
+<button id="logIn" type="submit">Login</button>
+<h3 id="text" style="text-align:center;margin-top:20px;"><a href="../../" style="text-decoration:none;color:orange;">back to main</a></h3>
+</form>*/

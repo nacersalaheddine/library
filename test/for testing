@@ -1,0 +1,38 @@
+
+               /*
+                if(isset($db))echo "true";else echo "false";
+                echo $db->escape_value("it's working");
+                echo"<br/>";
+                /*insert data*/
+                /*
+                $sql  = "INSERT INTO lecteurs (id, username, password, first_name, last_name) ";
+                $sql .= "VALUES (2, 'morad45', 'morad123', 'morad', 'moradi')";
+                $result = $db->query($sql);
+                */
+                
+                /**recover data */
+                /*
+                echo"<br/>";echo"select one data row<br/>";
+                $sql  = "SELECT * FROM lecteurs WHERE id = 2;";
+                $result_set = mysqli_query($db->get_connection(), $sql);
+
+                $row = $db->fetch_array($result_set) ;
+                echo "id: " . $row["id"]. " - Full Name: " . $row["first_name"]. " " . $row["last_name"]. "<br>";
+                
+            
+
+
+                echo"select all data<br/>";
+                $sql  = "SELECT * FROM lecteurs;";
+                $result_set = mysqli_query($db->get_connection(), $sql);
+
+
+                if (mysqli_num_rows($result_set) > 0) {
+                    // output data of each row
+                    while($row = $db->fetch_array($result_set)) {
+                        echo "id: " . $row["id"]. " - Full Name: " . $row["first_name"]. " " . $row["last_name"]. "<br>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+                */

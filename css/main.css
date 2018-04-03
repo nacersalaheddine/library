@@ -1,0 +1,53 @@
+@import url("nav-menu.css");
+@import url("footer.css");
+@import url("search-input.css");
+@import url("float-input.css");
+@import url("book-card.css");
+/*
+@import url("nav-skins.css");*/
+
+@font-face {
+  font-family: economica;
+  src: url(../res/Economica-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+/* Set a background color */
+
+body {
+  background-image: url("../res/bright-squares.png");
+  background-repeat: repeat;
+  font-family: economica;
+  background-color: rgb(230, 230, 230);
+}
+
+header {
+  width: 100%;
+  background-image: url("../res/header.png");
+  background-size: 100% 500px;
+  background-repeat: no-repeat;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+section {
+  width: 100%;
+  height: auto;
+  background-color: #EEEEEE;
+  padding: 20 px;
+}
+
+section h1 {
+  color: rgb(209, 102, 15);
+}
+section img {
+  width: 350px;
+  height: 200px;
+  float: right;
+}
+
+/*search*/

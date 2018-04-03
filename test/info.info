@@ -1,0 +1,45 @@
+select user,host from mysql.user;
+To show privileges:
+
+show grants for 'user'@'host';
+To change privileges, first revoke. Such as:
+
+revoke all privileges on *.* from 'user'@'host';
+Then grant the appropriate privileges as desired:
+
+grant SELECT,INSERT,UPDATE,DELETE ON `db`.* TO 'user'@'host';
+Finally, flush:
+
+flush privileges;
+
+1. From the DOS command prompt, type
+mysql –uroot -p
+You will be prompted to enter the root password, as shown in Figure 32.7.
+
+2. At the mysql prompt, enter
+use mysql;
+
+3. To create user scott  with password  tiger , enter
+create user 'scott'@'localhost' identified by 'tiger';
+
+4. To grant privileges to scott , enter
+grant select, insert, update, delete, create, create view, drop,
+execute, references on *.* to 'scott'@'localhost';
+ ■  If you want to enable remote access of the account from any IP address, enter
+grant all privileges on *.* to 'scott'@'%'
+  identified by 'tiger';
+ ■  If you want to restrict the account’s remote access to just one particular IP address, 
+enter
+grant all privileges on *.* to 'scott'@'ipAddress'
+  identified by 'tiger';
+
+TABLE 32.4    JDBC URLs
+
+Database         URL Pattern
+Access           jdbc:odbc:dataSource
+MySQL            jdbc:mysql://hostname/dbname
+Oracle           jdbc:oracle:thin:@hostname:port#:oracleDBSID
+
+//To give privileges to the root user 
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'
+ IDENTIFIED BY '%password%' WITH GRANT OPTION;

@@ -1,0 +1,19 @@
+@font-face {
+    font-family: economica;
+    src: url(../res/Economica-Regular.ttf);
+  }
+
+  *{
+    box-sizing: border-box;
+    margin: 0px;
+  }
+  /* Set a background color */
+
+  body {
+    background-image: url("../res/bright-squares.png");
+    background-repeat: repeat;
+    font-family: economica;
+    background-color: rgb(230, 230, 230);
+
+
+  }

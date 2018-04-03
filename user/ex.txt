@@ -1,0 +1,2 @@
+ value="<?php echo htmlentities($password);?>" 
+ value="<?php echo htmlentities($username);?>
