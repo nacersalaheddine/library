@@ -10,7 +10,17 @@ INSERT INTO lecteurs (id,username,password,first_name,last_name) VALUES (83,"Sus
 INSERT INTO lecteurs (id,username,password,first_name,last_name) VALUES (93,"Ut@Crasegetnisi.com","4885","Ahmed","Knox"),(94,"urna.Nullam.lobortis@facilisisnonbibendum.org","8811","Malcolm","Stevenson"),(95,"nibh@loremacrisus.co.uk","1236","Hedwig","Chen"),(96,"tellus.sem.mollis@utdolor.org","8354","Alfreda","Terry"),(97,"Etiam@Mauris.co.uk","9813","Whitney","Henderson"),(98,"sit.amet@placerat.net","7283","Blair","Sargent"),(99,"vel.mauris@Sednecmetus.co.uk","2184","Hedwig","Callahan"),(100,"ornare.placerat@Namacnulla.ca","6885","Salvador","Roy"),(101,"tortor.Integer.aliquam@tristiquesenectuset.org","7109","Mikayla","Roth"),(102,"laoreet@purusMaecenaslibero.edu","1691","Adena","Hopkins");
 
 
+/*<?php
 
+// Database Constants
+defined('DB_SERVER') ? null : define("DB_SERVER", "localhost");
+defined('DB_USER')   ? null : define("DB_USER", "id5287212_lib");
+defined('DB_PASS')   ? null : define("DB_PASS", "58103339");
+defined('DB_NAME')   ? null : define("DB_NAME", "id5287212_lib");
+
+
+
+?>*/
 
 /*books*/
 INSERT INTO livres (id,title,img,description,nbr_exemplairs) VALUES (1,"a, malesuada",1,"at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac",1),(2,"Integer",2,"In condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec tincidunt.",10),(3,"ligula consectetuer rhoncus.",3,"cursus, diam at pretium aliquet, metus urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel,",0),(4,"commodo ipsum.",4,"pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod",2),(5,"mauris a nunc.",5,"magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu",0),(6,"mollis. Integer tincidunt",6,"nec ante blandit viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec",3),(7,"hymenaeos.",7,"magna tellus faucibus leo, in lobortis tellus justo sit amet nulla. Donec non justo. Proin non massa non ante bibendum",6),(8,"Morbi vehicula.",8,"quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna.",5),(9,"ipsum.",9,"Morbi sit amet massa. Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec, diam. Duis",0),(10,"eget massa.",10,"pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula",3);

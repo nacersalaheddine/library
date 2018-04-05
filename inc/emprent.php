@@ -1,22 +1,38 @@
 <?php
 require_once("database.php");
+require_once("livre.php");
 
- class Livre{
+
+ class Emprent{
 
   public  $id;
-  public  $title;
-  public  $img;
-  public  $description;
-  public  $nbr_exemplairs;
-  private  static $table_name = "livres";
+  public  $id_lecteur;
+  public  $date_emprent;
+  public  $date_ret;
+
+  private  static $table_name = "emprent";
 
 
+  public static function emprenter($id_livre,$id_lect){
+    global $db;
+   // $nbr = Livre::get_nbr_exemplair(2);
 
-  public function title(){
-    if(isset($this->title))
-    return $this->title;
-    else
-    return "No Title";
+
+      if(isset($id_livre)&&isset($id_lect)){
+
+        $ree = Livre::emprent($id_lect,$id_livre);
+
+        $sql =  'UPDATE livres SET nbr_exemplairs = nbr_exemplairs - 1 WHERE id = '.$id_livre.' && nbr_exemplairs > 0;';
+        $result = $db->query($sql);
+
+        return "EMPRENTED";
+
+       // return $row['nbr_exemplairs'];
+      }else{
+        return false;
+      }
+
+
   }
 
   public static function find_all(){
@@ -31,35 +47,15 @@ require_once("database.php");
       return !empty($result_array) ? array_shift($result_array) : false;
 
   }
-
-  public static function get_count_of_books(){
+/*   public static function get_count_of_books(){
     global $db;
-    $count_sql = "select count(id) from livres;";
+    $count_sql = "select count(id) from emprent;";
     $result_set= $db->query(($count_sql));
     $counted = $db->fetch_array($result_set);
 
     return $counted['count(id)'];
-  }
-  public static function  emprent($id_lecteur,$id_livre){
-    global $db;
-    $date_emprent =date("Y-m-d");
-    $date_ret = date('Y-m-d', strtotime($date_emprent. ' + 15 days'));
-    $emprent_sql = 'INSERT INTO emprent ( id_lecteur, id_livre, date_emprent, date_ret)';
-    $emprent_sql .=' VALUES ( '.$id_lecteur.', '.$id_livre.', "'.$date_emprent.'", "'.$date_ret.'");';
+  } */
 
-    $result= $db->query(($emprent_sql));
-    return $result;
-
-  }
-  public static function  get_nbr_exemplair($livre_id){
-    global $db;
-    $nbr_sql = "select nbr_exemplairs from livres where id = '.$livre_id.';";
-    $result_set= $db->query(($nbr_sql));
-    $nbr = $db->fetch_array($result_set);
-
-   return $nbr['nbr_exemplairs'];
-
-}
   public static function find_by_range($limit=10,$increment=10){
      global $db;
      if( self::get_count_of_books() > $limit){

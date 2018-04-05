@@ -33,8 +33,18 @@ CREATE TABLE livres (
    PRIMARY KEY  (`id`)
 ) ;
 
+create table emprent(
+  `id` int(11) NOT NULL auto_increment,
+  `id_lecteur` int(11) NOT NULL,
+  `id_livre` int(11) NOT NULL unique,
+  `date_emprent` DATE NOT NULL,
+  `date_ret`  DATE  NOT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY(`id_lecteur`)  REFERENCES lecteurs(`id`),
+   FOREIGN KEY(`id_livre`) REFERENCES  livres(`id`)
 
 
+);
 
 /*Insertion*/
 /*lecteurs*/
@@ -49,6 +59,15 @@ VALUES (1, 'admin', '1994', 'salah eddine', 'nacer');
 
 INSERT INTO admins (id, username, password, first_name, last_name)
 VALUES (2, 'admin', 'admin', 'admin firstname', 'admin lastname');
+
+
+/*emprent*/
+INSERT INTO emprent (id, id_lecteur, id_livre, date_emprent, date_ret)
+VALUES (1, 1, 2, "2018-4-5", "2018-4-20");
+
+
+/*update*/
+ UPDATE livres SET nbr_exemplairs = nbr_exemplairs - 1 WHERE id = 2;
 
 /*selection */
 SELECT * FROM lecteurs WHERE id = 1;
