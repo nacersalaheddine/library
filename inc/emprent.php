@@ -17,7 +17,7 @@ require_once("livre.php");
   public static function emprenter($id_livre,$id_lect){
     global $db;
 
-      $emprented = self::check_emprented($id_livre);//returns true or false if the book exists or no
+      $emprented = self::check_emprented($id_livre,$id_lect);//returns true or false if the book exists or no
 
       if(isset($id_livre)&&isset($id_lect)&& $emprented){
 
@@ -35,8 +35,8 @@ require_once("livre.php");
 
 
   }
-  public static function check_emprented($id_livre){
-    $sql_check_emprented = 'select * from emprent where id_livre = '.$id_livre;
+  public static function check_emprented($id_livre,$id_lect){
+    $sql_check_emprented = 'select * from emprent where id_livre = '.$id_livre. '&& id_lecteur = '.$id_lect;
     $result_array = self::find_by_sql($sql_check_emprented);
     return empty($result_array);
   }
