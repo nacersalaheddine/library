@@ -51,6 +51,9 @@ require_once("database.php");
     return $result;
 
   }
+
+
+
   public static function  get_nbr_exemplair($livre_id){
     global $db;
     $nbr_sql = "select nbr_exemplairs from livres where id = '.$livre_id.';";

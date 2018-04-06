@@ -8,6 +8,7 @@ require_once("livre.php");
   public  $id;
   public  $id_lecteur;
   public  $date_emprent;
+  public  $id_livre;
   public  $date_ret;
 
   private  static $table_name = "emprent";
@@ -15,24 +16,29 @@ require_once("livre.php");
 
   public static function emprenter($id_livre,$id_lect){
     global $db;
-   // $nbr = Livre::get_nbr_exemplair(2);
 
+      $emprented = self::check_emprented($id_livre);//returns true or false if the book exists or no
 
-      if(isset($id_livre)&&isset($id_lect)){
+      if(isset($id_livre)&&isset($id_lect)&& $emprented){
 
         $ree = Livre::emprent($id_lect,$id_livre);
 
         $sql =  'UPDATE livres SET nbr_exemplairs = nbr_exemplairs - 1 WHERE id = '.$id_livre.' && nbr_exemplairs > 0;';
         $result = $db->query($sql);
 
-        return "EMPRENTED";
+        return "EMPRENTED ".$emprented;
 
        // return $row['nbr_exemplairs'];
       }else{
-        return false;
+        return "Error ";
       }
 
 
+  }
+  public static function check_emprented($id_livre){
+    $sql_check_emprented = 'select * from emprent where id_livre = '.$id_livre;
+    $result_array = self::find_by_sql($sql_check_emprented);
+    return empty($result_array);
   }
 
   public static function find_all(){
@@ -47,14 +53,7 @@ require_once("livre.php");
       return !empty($result_array) ? array_shift($result_array) : false;
 
   }
-/*   public static function get_count_of_books(){
-    global $db;
-    $count_sql = "select count(id) from emprent;";
-    $result_set= $db->query(($count_sql));
-    $counted = $db->fetch_array($result_set);
 
-    return $counted['count(id)'];
-  } */
 
   public static function find_by_range($limit=10,$increment=10){
      global $db;

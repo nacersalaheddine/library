@@ -14,7 +14,7 @@
         $emp = $emprent::emprenter($livre_id,$lecteur_id);
         if($emp){
          echo $emp;
-       // echo "befor: ".$date." after ".date('Y-m-d', strtotime($date. ' + 15 days'));
+
 
       }else{
 

@@ -3,8 +3,7 @@ CREATE DATABASE library;
 USE library;
 
 GRANT ALL PRIVILEGES ON library.*
-TO 'lib'@'localhost'
-
+TO 'lib'@'localhost' IDENTIFIED BY 'password';
 
 /*creation*/
 CREATE TABLE lecteurs(
@@ -36,7 +35,7 @@ CREATE TABLE livres (
 create table emprent(
   `id` int(11) NOT NULL auto_increment,
   `id_lecteur` int(11) NOT NULL,
-  `id_livre` int(11) NOT NULL unique,
+  `id_livre` int(11) NOT NULL ,
   `date_emprent` DATE NOT NULL,
   `date_ret`  DATE  NOT NULL,
    PRIMARY KEY (`id`),
